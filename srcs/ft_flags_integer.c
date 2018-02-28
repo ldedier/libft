@@ -6,7 +6,7 @@
 /*   By: ldedier <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/05 21:35:53 by ldedier           #+#    #+#             */
-/*   Updated: 2018/02/06 21:17:38 by ldedier          ###   ########.fr       */
+/*   Updated: 2018/02/28 21:21:31 by ldedier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int		ft_pf_d(t_pf *pf, va_list va, char c)
 	ft_add_padding_pre_zeros(*pf, no_padding_bytes);
 	ft_add_precision_base(*pf, 10);
 	if (!pf->precised_precision || pf->flags.precision || pf->var.integer)
-		ft_putnbr_max(ft_abs(pf->var.integer));
+		ft_putnbr_max(ft_abs_max(pf->var.integer));
 	ft_add_padding_post(*pf, no_padding_bytes);
 	return (1);
 }

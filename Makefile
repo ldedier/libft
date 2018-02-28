@@ -6,7 +6,7 @@
 #    By: ldedier <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/06 18:20:16 by ldedier           #+#    #+#              #
-#    Updated: 2018/02/28 20:45:05 by ldedier          ###   ########.fr        #
+#    Updated: 2018/02/28 21:59:35 by ldedier          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,7 @@ SRCS_NO_PREFIX = ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c\
 	   ft_return.c ft_init.c ft_putoctal.c ft_putnbr_unsigned.c\
 	   ft_putnstr.c ft_putnbr_max.c ft_puthex_max.c ft_putoctal_max.c\
 	   ft_putbin.c ft_putdbl.c ft_get_buffer.c ft_putstr_non_printable.c\
-	   ft_tools.c ft_prefix.c ft_padding.c ft_get_casted_values.c ft_precision.c\
+	   ft_tools.c ft_prefix_pf.c ft_padding.c ft_get_casted_values.c ft_precision.c\
 	   ft_mod_len.c ft_bonus_flags.c ft_flags_integer.c ft_put_wchar.c\
 	   ft_flag_c_maj.c ft_put_wchar_len_3_4.c ft_flags_x_p.c\
 	   ft_flags_s.c ft_flags_others.c ft_flags_o.c ft_flags_f.c\

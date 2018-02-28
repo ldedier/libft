@@ -6,7 +6,7 @@
 /*   By: ldedier <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/07 01:13:42 by ldedier           #+#    #+#             */
-/*   Updated: 2018/02/08 22:18:19 by ldedier          ###   ########.fr       */
+/*   Updated: 2018/02/28 21:25:00 by ldedier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -161,11 +161,11 @@ void				ft_putnbr(int nbr);
 void				ft_putnbr_unsigned(unsigned int n);
 void				ft_putnbr_max(uintmax_t n);
 void				ft_putstr_non_printable(const char *s, size_t n);
-intmax_t			ft_abs(intmax_t a);
-int					ft_max(int a, int b);
-int					ft_min(int a, int b);
+intmax_t			ft_abs_max(intmax_t a);
 void				ft_putnstr(char const *str, size_t n);
 double				ft_fabs(double a);
+int					ft_min(int a, int b);
+int					ft_max(int a, int b);
 
 void				ft_gtvar_none(t_pf *pf, va_list va);
 void				ft_gtvar_signed_char(t_pf *pf, va_list va);

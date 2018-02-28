@@ -6,7 +6,7 @@
 /*   By: ldedier <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/05 21:27:15 by ldedier           #+#    #+#             */
-/*   Updated: 2018/02/27 21:22:43 by ldedier          ###   ########.fr       */
+/*   Updated: 2018/02/28 21:21:15 by ldedier          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int		ft_pf_star(t_pf *pf, va_list va, char c)
 	else
 	{
 		val = va_arg(va, int);
-		pf->flags.padding = ft_abs(val);
+		pf->flags.padding = ft_abs_max(val);
 		if (val < 0)
 			pf->flags.padding_style = e_padding_negative;
 	}
