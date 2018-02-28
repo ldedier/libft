@@ -6,19 +6,23 @@
 #    By: ldedier <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/06 18:20:16 by ldedier           #+#    #+#              #
-#    Updated: 2018/02/19 00:08:27 by ldedier          ###   ########.fr        #
+#    Updated: 2018/02/28 20:45:05 by ldedier          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
-DEPS = libft.h
+DEPS = libft.h ft_printf.h
+
+SRCDIR   = srcs
+OBJDIR   = objs
+BINDIR   = .
 
 OK_COLOR = \x1b[32;01m
 EOC = \033[0m
 
-SRCS = ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c\
+SRCS_NO_PREFIX = ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c\
 	   ft_memchr.c ft_memcmp.c ft_strlen.c ft_strdup.c ft_strcpy.c\
 	   ft_strncpy.c ft_strcat.c ft_strncat.c ft_strlcat.c ft_strchr.c\
 	   ft_strrchr.c ft_strstr.c ft_strnstr.c ft_strcmp.c ft_strncmp.c\
@@ -32,24 +36,38 @@ SRCS = ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c\
 	   ft_lstadd.c ft_lstiter.c ft_lstmap.c ft_isseparator.c ft_lstpushback.c\
 	   ft_lstpop.c ft_lstlength.c ft_sort_tab.c ft_newtree.c ft_infix.c\
 	   ft_prefix.c ft_postfix.c get_next_line.c ft_free_split.c\
-	   ft_abs.c ft_max.c ft_min.c ft_lstnew_ptr.c
+	   ft_abs.c ft_max.c ft_min.c ft_lstnew_ptr.c ft_putchar_buff.c ft_printf.c\
+	   ft_return.c ft_init.c ft_putoctal.c ft_putnbr_unsigned.c\
+	   ft_putnstr.c ft_putnbr_max.c ft_puthex_max.c ft_putoctal_max.c\
+	   ft_putbin.c ft_putdbl.c ft_get_buffer.c ft_putstr_non_printable.c\
+	   ft_tools.c ft_prefix.c ft_padding.c ft_get_casted_values.c ft_precision.c\
+	   ft_mod_len.c ft_bonus_flags.c ft_flags_integer.c ft_put_wchar.c\
+	   ft_flag_c_maj.c ft_put_wchar_len_3_4.c ft_flags_x_p.c\
+	   ft_flags_s.c ft_flags_others.c ft_flags_o.c ft_flags_f.c\
+	   ft_display_len_integer.c ft_display_len_string.c\
+	   ft_display_len_wchar.c ft_display_len_p.c\
+	   ft_get_casted_values_func.c ft_get_casted_values_func_2.c\
+	   ft_get_casted_values_func_3.c ft_may_error.c\
 
-OBJS = $(SRCS:.c=.o)
+SOURCES = $(addprefix $(SRCDIR)/, $(SRCS_NO_PREFIX))
+OBJECTS = $(addprefix $(OBJDIR)/, $(SRCS_NO_PREFIX:%.c=%.o))
+INCLUDES = $(SRCDIR)/libft.h $(SRCDIR)/ft_printf.h
 
-all: $(NAME)
+all: $(BINDIR)/$(NAME)
 
-%.o: %.c $(DEPS)
-	$(CC) -c -o $@ $< $(CFLAGS)
+$(OBJDIR)/%.o : $(SRCDIR)/%.c $(INCLUDES)
+		$(CC) -c $< -o $@ $(CFLAGS)
 
-$(NAME): $(OBJS)
-	@ar rc $@ $^ 
+$(BINDIR)/$(NAME): $(OBJECTS)
+	@ar rc $@ $^
+	@ranlib $(NAME)
 	@echo "$(OK_COLOR)$(NAME) linked with success !$(EOC)"
 clean:
-	@rm -f $(OBJS)
+	@rm -f $(OBJECTS)
 
 fclean: clean
-	@rm -f $(NAME)
+	@rm -f $(BINDIR)/$(NAME)
 
-re: fclean $(NAME)
+re: fclean all
 
 .PHONY: all clean fclean re
