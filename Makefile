@@ -6,7 +6,7 @@
 #    By: ldedier <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/06 18:20:16 by ldedier           #+#    #+#              #
-#    Updated: 2018/02/28 21:59:35 by ldedier          ###   ########.fr        #
+#    Updated: 2018/03/11 14:53:32 by ldedier          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,10 @@ NAME = libft.a
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 DEPS = libft.h ft_printf.h
+
+ifeq ($(DEBUG), 1)
+	CFLAGS += -DDEBUG -fsanitize=address
+endif
 
 SRCDIR   = srcs
 OBJDIR   = objs
